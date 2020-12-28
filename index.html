@@ -1,0 +1,78 @@
+<html>    
+<head><title>DATA MAHASISWA</title></head>
+<body>
+    <form action="#"  method="post">
+    <table  width="500" border="0" align="center"  cellpadding="0" cellspacing="1"  bgcolor="#000" style="padding: 5px">
+        <tr>
+            <td  height="45" align="center"  bgcolor="#000"><font  color="#FFFFFF">
+            <b>FORM PENDAFTARAN MAHASISWA</b></font></td>
+        </tr>
+        <tr>
+            <td  bgcolor="#FFFFFF"><table width="500"  border="0" align="center" cellpadding="10"  cellspacing="0">
+        <tr>
+        <body>
+            <tr>
+                <td>Nama : </td>
+                <td><input type="text" name="nama" id="nama"></td>
+                <td rowspan="5">
+                    Nama : <span id="resultNama"></span>
+                    <br> Jenis Kelamin : <span id="resultJK"></span>
+                    <br> Prodi : <span id="resultProdi"></span>
+                    <br> Hobby : <span id="resultHobby"></span>
+                </td>
+            </td>
+            </tr>
+            <tr>
+                <td>Jenis Kelamin : </td>
+                <td>
+                    <input type="radio" name="jk" id="Pria" value="Pria"><label for="">Pria</label>
+                    <input type="radio" name="jk" id="Wanita" value="Wanita"><label for="">Wanita</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Prodi :</td>
+                <td>
+                    <select name="" id="prodi">
+                        <option value="Teknik Informatika">Teknik Informatika</option>
+                        <option value="Sistem Informatika">Sistem Informatika</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Hobby</td>
+                <td>
+                    <input type="checkbox" name="hobby" id="Coding" value="Coding"><label for="Coding">Coding</label>
+                    <input type="checkbox" name="hobby" id="Jalan-Jalan" value="Jalan-Jalan"><label for="Jalan-Jalan">Jalan-Jalan</label>
+                    <input type="checkbox" name="hobby" id="Makan" value="Makan"><label for="Makan">Makan</label>
+                </td>
+
+            </tr>
+            <tr>
+                <td><button type="button" id="kirim">Kirim</button></td>
+            </tr>
+        </table>
+        <script type="text/Javascript">
+
+            document.getElementById('kirim').addEventListener('click',function() {
+                let nama = document.getElementById('nama').value;
+                let jk = document.querySelector('input[name="jk"]:checked').value;
+                let prodi = document.getElementById('prodi').value;
+                let datahobby = document.querySelectorAll('input[name="hobby"]:checked');
+                var hobby= '';
+                for(i=0; i<datahobby.length; i++) {
+                    hobby += datahobby[i].value + '';
+                    hobby += i < datahobby.length - 1 ? ' , ' : '';
+                }
+                console.log(hobby);
+
+                document.getElementById('resultNama').innerHTML = nama;
+                document.getElementById('resultJK').innerHTML = jk;
+                document.getElementById('resultProdi').innerHTML = prodi;
+                document.getElementById('resultHobby').innerHTML = hobby;
+            });
+
+        </script>                
+    </table>
+    </form>
+</body>
+</html>
